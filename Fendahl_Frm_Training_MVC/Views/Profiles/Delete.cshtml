@@ -1,0 +1,14 @@
+﻿@model  Fendahl_Frm_Training_MVC.Models.Profile
+
+<h2>Are you sure you want to delete?</h2>
+<div>
+    <strong>Name:</strong> @Model.Name <br />
+    <strong>Age:</strong> @Model.Age <br />
+    <strong>Course:</strong> @Model.Course <br />
+</div>
+@using (Html.BeginForm("Delete", "Profiles", new { id = Model.Id }, FormMethod.Post))
+{
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+}
+

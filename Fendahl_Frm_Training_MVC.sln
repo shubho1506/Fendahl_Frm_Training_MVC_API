@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fendahl_Frm_Training_MVC", "Fendahl_Frm_Training_MVC\Fendahl_Frm_Training_MVC.csproj", "{B0B03244-E4E4-47B4-9D67-36316B6207B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fendahl_API_Profile", "Fendahl_API_Profile\Fendahl_API_Profile.csproj", "{AD92E65A-C29C-484F-BE4A-70B31D317CB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0B03244-E4E4-47B4-9D67-36316B6207B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B03244-E4E4-47B4-9D67-36316B6207B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B03244-E4E4-47B4-9D67-36316B6207B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B03244-E4E4-47B4-9D67-36316B6207B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD92E65A-C29C-484F-BE4A-70B31D317CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD92E65A-C29C-484F-BE4A-70B31D317CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD92E65A-C29C-484F-BE4A-70B31D317CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD92E65A-C29C-484F-BE4A-70B31D317CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7588BD9A-EA09-4872-A285-0EDC2E1E2468}
+	EndGlobalSection
+EndGlobal

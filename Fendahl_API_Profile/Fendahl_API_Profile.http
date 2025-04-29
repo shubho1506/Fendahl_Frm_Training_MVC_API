@@ -1,0 +1,6 @@
+@Fendahl_API_Profile_HostAddress = http://localhost:5043
+
+GET {{Fendahl_API_Profile_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

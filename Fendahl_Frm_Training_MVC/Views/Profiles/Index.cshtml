@@ -1,0 +1,30 @@
+﻿@model List<Fendahl_Frm_Training_MVC.Models.Profile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Profile List</h2>
+<a href="@Url.Action("Create")" class="btn btn-success">Add Profile</a>
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr><th>ID</th><th>Name</th><th>Age</th><th>Course</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td>@p.Age</td>
+                <td>@p.Course</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = p.Id })" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = p.Id })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
