@@ -1,0 +1,29 @@
+﻿@model Fendahl_Frm_Training_MVC.Models.FEEDBACK
+
+@using (Html.BeginForm("Create", "Feedback", FormMethod.Post, new { id = "formCreate" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-control">
+        <p>What is your name?</p>
+        @Html.TextBoxFor(m => m.Q1, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        <p>What is your favourite animal?</p>
+        @Html.TextBoxFor(m => m.Q2, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        <p>What is your favourite color?</p>
+        @Html.TextBoxFor(m => m.Q3, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        <p>What is your favourite movie?</p>
+        @Html.TextBoxFor(m => m.Q4, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        <p>What is your favourite anime?</p>
+        @Html.TextBoxFor(m => m.Q5, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}

@@ -1,0 +1,14 @@
+﻿
+<div>
+    @using (Html.BeginForm("Create", "Feedback", FormMethod.Get, new { id = "formCreate" }))
+    {
+        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+    }
+</div>
+<br />
+<div>
+    @using (Html.BeginForm("GetData", "Registration", FormMethod.Get, new { id = "formCreate" }))
+    {
+        <button type="submit" class="btn btn-primary">Get Data</button>
+    }
+</div>

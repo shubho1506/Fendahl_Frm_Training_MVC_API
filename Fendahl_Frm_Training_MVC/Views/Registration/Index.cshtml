@@ -1,0 +1,61 @@
+﻿@*@model Fendahl_Frm_Training_MVC.Models.REGISTRATION
+
+    <h2>Add Registration</h2>
+
+    @using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { id = "formCreate" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-control">
+            @Html.LabelFor(m => m.ID)>
+            @Html.TextBoxFor(m => m.ID,new { @class = "form-control" })
+        </div>
+        <div class="form-control">
+            @Html.LabelFor(m => m.NAME)>
+            @Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })
+        </div>
+        <div class="form-control">
+            @Html.LabelFor(m => m.AGE)>
+            @Html.TextBoxFor(m => m.AGE, new { @class = "form-control" })
+        </div>
+        <div class="form-control">
+            @Html.LabelFor(m => m.MOBILE_NUMBER)>
+            @Html.TextBoxFor(m => m.MOBILE_NUMBER, new { @class = "form-control" })
+        </div>
+        <div class="form-control">
+            @Html.LabelFor(m => m.EMAIL)>
+            @Html.TextBoxFor(m => m.EMAIL, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    }*@
+
+@model Fendahl_Frm_Training_MVC.Models.REGISTRATION
+
+<h2>Add Registration</h2>
+
+@using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { id = "formCreate" }))
+{
+    @Html.AntiForgeryToken()
+
+    @*<div class="form-control">
+        @Html.LabelFor(m => m.ID)
+        @Html.TextBoxFor(m => m.ID, new { @class = "form-control" })
+    </div>*@
+    <div class="form-control">
+        @Html.LabelFor(m => m.NAME)
+        @Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        @Html.LabelFor(m => m.AGE)
+        @Html.TextBoxFor(m => m.AGE, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        @Html.LabelFor(m => m.MOBILE_NUMBER)
+        @Html.TextBoxFor(m => m.MOBILE_NUMBER, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        @Html.LabelFor(m => m.EMAIL)
+        @Html.TextBoxFor(m => m.EMAIL, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

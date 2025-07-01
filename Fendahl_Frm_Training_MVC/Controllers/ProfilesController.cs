@@ -20,39 +20,39 @@ namespace Fendahl_Frm_Training_MVC.Controllers
     {
         private readonly string apiBaseUrl = "https://localhost:7181/api/profiles";
 
-        //public ActionResult Index()
-        //{
-        //    using (HttpClient client = new HttpClient())
-        //    {
-        //        var response = client.GetAsync(apiBaseUrl).Result;
-        //        var data = response.Content.ReadAsStringAsync().Result;
-        //        var profiles = JsonConvert.DeserializeObject<List<Profile>>(data);
-        //        return View(profiles);
-        //    }
-        //}
-
         public ActionResult Index()
         {
             using (HttpClient client = new HttpClient())
             {
-                // Tell the API: "Send me XML"
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
-
                 var response = client.GetAsync(apiBaseUrl).Result;
                 var data = response.Content.ReadAsStringAsync().Result;
-
-                // Now Deserialize XML
-                List<Profile> profiles;
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Profile>));
-
-                using (TextReader reader = new StringReader(data))
-                {
-                    profiles = (List<Profile>)serializer.Deserialize(reader);
-                }
-
+                var profiles = JsonConvert.DeserializeObject<List<Profile>>(data);
                 return View(profiles);
             }
         }
+
+        //public ActionResult Index()
+        //{
+        //    using (HttpClient client = new HttpClient())
+        //    {
+        //        // Tell the API: "Send me XML"
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
+        //        var response = client.GetAsync(apiBaseUrl).Result;
+        //        var data = response.Content.ReadAsStringAsync().Result;
+
+        //        // Now Deserialize XML
+        //        List<Profile> profiles;
+        //        XmlSerializer serializer = new XmlSerializer(typeof(List<Profile>));
+
+        //        using (TextReader reader = new StringReader(data))
+        //        {
+        //            profiles = (List<Profile>)serializer.Deserialize(reader);
+        //        }
+
+        //        return View(profiles);
+        //    }
+        //}
 
 
 

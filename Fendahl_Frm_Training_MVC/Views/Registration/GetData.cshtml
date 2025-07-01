@@ -1,0 +1,18 @@
+﻿@model Fendahl_Frm_Training_MVC.DTO.UpdateDTO
+
+
+
+@using (Html.BeginForm("GetData", "Registration", FormMethod.Post, new { id = "formCreate" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-control">
+        @Html.LabelFor(m => m.NAME)
+        @Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })
+    </div>
+    <div class="form-control">
+        @Html.LabelFor(m => m.MOBILE_NUMBER)
+        @Html.TextBoxFor(m => m.MOBILE_NUMBER, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Get Data</button>
+}

@@ -23,7 +23,7 @@ namespace Fendahl_Frm_Training_MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Profiles", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Registration", action = "Index", id = UrlParameter.Optional }
             );
 
             // Custom route for PersonController

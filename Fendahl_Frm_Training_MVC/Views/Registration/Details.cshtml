@@ -1,0 +1,31 @@
+﻿@model Fendahl_Frm_Training_MVC.Models.REGISTRATION
+
+<h2>Update Profile</h2>
+
+@using (Html.BeginForm("Update", "Registration", FormMethod.Post, new { id = "formUpdate" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NAME)
+        @Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AGE)
+        @Html.TextBoxFor(m => m.AGE, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MOBILE_NUMBER)
+        @Html.TextBoxFor(m => m.MOBILE_NUMBER, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EMAIL)
+        @Html.TextBoxFor(m => m.EMAIL, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
+    <a href="@Url.Action("DeleteData", "Registration", new { id = Model.ID })" class="btn btn-danger">Delete</a>
+
+}

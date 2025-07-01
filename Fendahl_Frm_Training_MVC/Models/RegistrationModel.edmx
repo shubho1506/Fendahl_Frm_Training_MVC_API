@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FENDAHL_EXAMINATIONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="int" />
+          <Property Name="Q1" Type="varchar" MaxLength="8000" />
+          <Property Name="Q2" Type="varchar" MaxLength="8000" />
+          <Property Name="Q3" Type="varchar" MaxLength="8000" />
+          <Property Name="Q4" Type="varchar" MaxLength="8000" />
+          <Property Name="Q5" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="REGISTRATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AGE" Type="int" Nullable="false" />
+          <Property Name="MOBILE_NUMBER" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__FEEDBACK__USER_I__60A75C0F">
+          <End Role="REGISTRATION" Type="Self.REGISTRATION" Multiplicity="0..1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGISTRATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FENDAHL_EXAMINATIONModelStoreContainer">
+          <EntitySet Name="FEEDBACK" EntityType="Self.FEEDBACK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGISTRATION" EntityType="Self.REGISTRATION" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FEEDBACK__USER_I__60A75C0F" Association="Self.FK__FEEDBACK__USER_I__60A75C0F">
+            <End Role="REGISTRATION" EntitySet="REGISTRATION" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACK" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FENDAHL_EXAMINATIONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="Int32" />
+          <Property Name="Q1" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Q2" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Q3" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Q4" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Q5" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="REGISTRATION" Relationship="Self.FK__FEEDBACK__USER_I__60A75C0F" FromRole="FEEDBACK" ToRole="REGISTRATION" />
+        </EntityType>
+        <EntityType Name="REGISTRATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AGE" Type="Int32" Nullable="false" />
+          <Property Name="MOBILE_NUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FEEDBACK" Relationship="Self.FK__FEEDBACK__USER_I__60A75C0F" FromRole="REGISTRATION" ToRole="FEEDBACK" />
+        </EntityType>
+        <Association Name="FK__FEEDBACK__USER_I__60A75C0F">
+          <End Role="REGISTRATION" Type="Self.REGISTRATION" Multiplicity="0..1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGISTRATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FENDAHL_EXAMINATION_Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FEEDBACK" EntityType="Self.FEEDBACK" />
+          <EntitySet Name="REGISTRATION" EntityType="Self.REGISTRATION" />
+          <AssociationSet Name="FK__FEEDBACK__USER_I__60A75C0F" Association="Self.FK__FEEDBACK__USER_I__60A75C0F">
+            <End Role="REGISTRATION" EntitySet="REGISTRATION" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACK" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FENDAHL_EXAMINATIONModelStoreContainer" CdmEntityContainer="FENDAHL_EXAMINATION_Context">
+          <EntitySetMapping Name="FEEDBACK">
+            <EntityTypeMapping TypeName="FENDAHL_EXAMINATIONModel.FEEDBACK">
+              <MappingFragment StoreEntitySet="FEEDBACK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="Q1" ColumnName="Q1" />
+                <ScalarProperty Name="Q2" ColumnName="Q2" />
+                <ScalarProperty Name="Q3" ColumnName="Q3" />
+                <ScalarProperty Name="Q4" ColumnName="Q4" />
+                <ScalarProperty Name="Q5" ColumnName="Q5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGISTRATION">
+            <EntityTypeMapping TypeName="FENDAHL_EXAMINATIONModel.REGISTRATION">
+              <MappingFragment StoreEntitySet="REGISTRATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="MOBILE_NUMBER" ColumnName="MOBILE_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
